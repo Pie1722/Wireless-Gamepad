@@ -11,7 +11,8 @@ Receiver should be connected to the computer. You can only use arduino which sup
 
 # Transmitter
 
-![IMG_20250228_122105](https://github.com/user-attachments/assets/a7939e38-c7c6-4b23-bd7f-41b40393cde5)
+![IMG_20250228_112403](https://github.com/user-attachments/assets/aef894a9-8d45-4e00-b13e-3f2850c78ce5)
+
 
 # Receiver
 
