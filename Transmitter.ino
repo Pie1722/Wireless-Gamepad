@@ -9,10 +9,10 @@ const byte address[6] = "00001"; // Address for communication
 struct JoystickData {
   int xAxis;
   int yAxis;
+  int zAxis;
   int rYaxis;
   int rXaxis;
-  int mpuX;
-  int mpuY;
+  int rZaxis;
   int switch1;
   int switch2;
   int switch3;
@@ -56,8 +56,10 @@ void loop() {
 
   joystick.xAxis = analogRead(A0);
   joystick.yAxis = analogRead(A1);
+  joystick.zAxis = analogRead(A6);
   joystick.rXaxis = analogRead(A3);
   joystick.rYaxis = analogRead(A2);
+  joystick.rZaxis = analogRead(A7);
   joystick.switch1 = digitalRead(3); // Read Switch 1
   joystick.switch2 = digitalRead(2); // Read Switch 2
   joystick.switch3 = digitalRead(8); // Read Switch 1
@@ -67,7 +69,7 @@ void loop() {
   joystick.switch7 = digitalRead(0); // Read Switch 1
   joystick.switch8 = digitalRead(1); // Read Switch 2
 
-   // read_IMU();    // Use MPU6050 instead of Joystick 1 for controling left, right, forward and backward movements
+   // read_IMU();    // Use MPU6050 for controling left, right, forward and backward movements
 
   
   radio.write(&joystick, sizeof(joystick)); // Send data
@@ -126,6 +128,6 @@ void read_IMU() {
   angleX = 0.98 * (angleX + gyroAngleX) + 0.02 * accAngleX;
   angleY = 0.98 * (angleY + gyroAngleY) + 0.02 * accAngleY;
   // Map the angle values from -90deg to +90 deg into values from 0 to 255, like the values we are getting from the Joystick
-  joystick.mpuX = map(angleX, -90, +90, 0, 1023);
-  joystick.mpuY = map(angleY, -90, +90, 1023, 0);
+  joystick.xAxis = map(angleX, -90, +90, 0, 1023);
+  joystick.rYaxis = map(angleY, -90, +90, 1023, 0);
 }
