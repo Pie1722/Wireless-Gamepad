@@ -13,6 +13,8 @@ Receiver should be connected to the computer. You can only use arduino which sup
 
 ![IMG_20250228_112403](https://github.com/user-attachments/assets/aef894a9-8d45-4e00-b13e-3f2850c78ce5)
 
+Circuit diagram for transmitter: https://github.com/Pie1722/Wireless-Gamepad/blob/c7640c2d3a67f22df48c943f02413a792ad8e9b9/Wireless%20Game%20Controller.pdf
+
 
 # Receiver
 
