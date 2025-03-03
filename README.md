@@ -5,7 +5,7 @@ Transmitter uses the Arduino nano.
 
 Receiver should be connected to the computer. You can only use arduino which supports HID implementation like Arduino Leonardo or Arduino Pro Micro which uses ATmega 32u4 chip.
 
-Circuit diagram for transmitter: https://github.com/Pie1722/Wireless-Gamepad/blob/c7640c2d3a67f22df48c943f02413a792ad8e9b9/Wireless%20Game%20Controller.pdf
+Circuit diagram for transmitter: Wireless Game Controller.pdf
 
 # CLick the picture below for video
 
