@@ -9,10 +9,10 @@ const byte address[6] = "00001"; // Address for communication
 struct JoystickData {
   int xAxis;
   int yAxis;
-  int rXaxis;
+  int zAxis;
   int rYaxis;
-  int mpuX;
-  int mpuY;
+  int rXaxis;
+  int rZaxis;
   int switch1;
   int switch2;
   int switch3;
@@ -44,14 +44,18 @@ void loop() {
     // Map joystick values (0-1023) to 8-bit HID joystick range (0-255)
     int8_t mappedX = map(joystick.xAxis, 0, 1023, -127, 127); // X-axis
     int8_t mappedY = map(joystick.yAxis, 0, 1023, -127, 127); // Y-axis
+    int8_t mappedZ = map(joystick.zAxis, 0, 1023, -127, 127); // Z-axis
     int16_t mappedRy = map(joystick.rYaxis, 0, 1023, -32768, 32767); // right Y-axis
     int16_t mappedRx = map(joystick.rXaxis, 0, 1023, -32768, 32767); // right X-axis
+    int8_t mappedRz = map(joystick.rZaxis, 0, 1023, -127, 128); // right Z-axis
 
     // Update Gamepad axes with 8-bit resolution
     Gamepad.xAxis(mappedX);
     Gamepad.yAxis(mappedY);
+    Gamepad.zAxis(mappedZ);
     Gamepad.ryAxis(mappedRy);
     Gamepad.rxAxis(mappedRx); 
+    Gamepad.rzAxis(mappedRz);
 
     // Map buttons to HID Gamepad
     uint8_t buttonStates = 0; // 8-bit value for buttons
