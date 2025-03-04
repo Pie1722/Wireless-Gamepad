@@ -15,6 +15,10 @@ Circuit diagram for transmitter: [Wireless Game Controller.pdf](https://github.c
 
 ![IMG_20250228_112403](https://github.com/user-attachments/assets/aef894a9-8d45-4e00-b13e-3f2850c78ce5)
 
+Schematic of transmitter:
+
+![Schematic_Wireless-Game-Controller_2025-03-04](https://github.com/user-attachments/assets/2f655f22-7231-4041-885c-5820f36fb415)
+
 
 # Receiver
 
