@@ -26,7 +26,6 @@ struct JoystickData {
 JoystickData joystick;
 
 void setup() {
-  Serial.begin(9600);
   Gamepad.begin(); // Initialize the gamepad
   radio.begin();
   radio.openReadingPipe(0, address);
@@ -39,14 +38,14 @@ void setup() {
 void loop() {
   if (radio.available()) {
 
-    radio.read(&joystick, sizeof(joystick));
+    radio.read(&joystick, sizeof(JoystickData));
 
     // Map joystick values (0-1023) to 8-bit HID joystick range (0-255)
-    int8_t mappedX = map(joystick.xAxis, 0, 1023, -127, 127); // X-axis
-    int8_t mappedY = map(joystick.yAxis, 0, 1023, -127, 127); // Y-axis
+    int16_t mappedX = map(joystick.xAxis, 0, 1023, -32768, +32767); // X-axis
+    int16_t mappedY = map(joystick.yAxis, 0, 1023, -32768, +32767); // Y-axis
     int8_t mappedZ = map(joystick.zAxis, 0, 1023, -127, 127); // Z-axis
-    int16_t mappedRy = map(joystick.rYaxis, 0, 1023, -32768, 32767); // right Y-axis
-    int16_t mappedRx = map(joystick.rXaxis, 0, 1023, -32768, 32767); // right X-axis
+    int16_t mappedRy = map(joystick.rYaxis, 0, 1023, -32768, +32767); // right Y-axis
+    int16_t mappedRx = map(joystick.rXaxis, 0, 1023, -32768, +32767); // right X-axis
     int8_t mappedRz = map(joystick.rZaxis, 0, 1023, -127, 128); // right Z-axis
 
     // Update Gamepad axes with 8-bit resolution
